@@ -47,4 +47,9 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllQueryBuilder()
+    {
+        return $this->createQueryBuilder('article');
+    }
 }
