@@ -3,5 +3,20 @@
 {% block title %}News!{% endblock %}
 
 {% block body %}
-    <h1>News</h1>
+    <table id="articles" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.title }}</td>
+                <td>{{ article.body }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
