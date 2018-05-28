@@ -7,14 +7,16 @@
         <thead>
         <tr>
             <th>Title</th>
-            <th>&nbsp;</th>
+            <th>More</th>
         </tr>
         </thead>
         <tbody>
         {% for article in articles %}
             <tr>
                 <td>{{ article.title }}</td>
-                <td>{{ article.body }}</td>
+                <td>
+                    <a href="/article/{{ article.id }}" class="btn btn-light">...</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

@@ -14,15 +14,25 @@ class ArticleController extends Controller {
      */
     public function index() {
 //        $mg = $this->getDoctrine()->getManager();
-//        $a = new Article();
-//        $a->setTitle('news 1');
-//        $a->setBody('news 1 body; news 1 body; news 1 body; news 1 body;');
-//        $mg->persist($a);
+//        for ($i = 0; $i <= 25; $i ++) {
+//            $a = new Article();
+//            $a->setTitle("news $i title title title title");
+//            $a->setBody("news $i body body body body body body body body body body body");
+//            $mg->persist($a);
+//        }
 //        $mg->flush();
 
         $articles = $this->getDoctrine()->
         getRepository(Article::class)->findAll();
 
         return $this->render('articles/index.html.twig', array('articles' => $articles));
+    }
+
+    /**
+     * @Route("/article/{id}", name="article_show")
+     */
+    public function show($id) {
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+        return $this->render('articles/show.html.twig', array('article' => $article));
     }
 }
